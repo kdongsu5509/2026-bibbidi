@@ -1,0 +1,33 @@
+{
+  "name": "bibbidi-fe",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bibbidi frontend built with React, TypeScript, and Webpack",
+  "packageManager": "pnpm@11.20.0",
+  "engines": {
+    "node": ">=24 <25",
+    "pnpm": ">=11 <12"
+  },
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm typecheck && webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "css-loader": "^7.1.4",
+    "html-webpack-plugin": "^5.6.8",
+    "mini-css-extract-plugin": "^2.10.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.6.2",
+    "typescript": "6.0.3",
+    "webpack": "^5.109.2",
+    "webpack-cli": "^7.2.2",
+    "webpack-dev-server": "^6.0.0"
+  }
+}
