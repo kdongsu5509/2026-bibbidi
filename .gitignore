@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+node_modules.isolated-backup/
+
+# Build output
+dist/
+web-build/
+.expo/
+.cache/
+
+# Local environment
+.env
+.env.*.local
+
+# IDE and OS files
+.DS_Store
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Generated native projects (Expo prebuild)
+APP/android/
+APP/ios/
