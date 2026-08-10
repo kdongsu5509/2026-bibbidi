@@ -1,6 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
 import {
-  Alert,
   FlatList,
   Image,
   Pressable,
@@ -11,6 +10,7 @@ import {
   type NativeScrollEvent,
   type NativeSyntheticEvent,
 } from 'react-native';
+import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ONBOARDING_SLIDES, type OnboardingSlide } from './onboarding-slides';
@@ -28,6 +28,7 @@ const COLORS = {
 
 export function OnboardingScreen() {
   const { width } = useWindowDimensions();
+  const router = useRouter();
   const listRef = useRef<FlatList<OnboardingSlide>>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -40,12 +41,8 @@ export function OnboardingScreen() {
   );
 
   const handleStart = useCallback(() => {
-    Alert.alert('회원가입 화면 연결 예정', '다음 단계에서 시작하기 화면을 연결할게요.');
-  }, []);
-
-  const handleLogin = useCallback(() => {
-    Alert.alert('로그인 화면 연결 예정', '다음 단계에서 로그인 화면을 연결할게요.');
-  }, []);
+    router.push('/schedule');
+  }, [router]);
 
   const renderSlide = useCallback(
     ({ item }: { item: OnboardingSlide }) => (
@@ -112,10 +109,8 @@ export function OnboardingScreen() {
 
           <View style={styles.loginRow}>
             <Text style={styles.loginPrompt}>이미 계정이 있나요?</Text>
-            <Pressable accessibilityRole="button" hitSlop={8} onPress={handleLogin}>
-              {({ pressed }) => (
-                <Text style={[styles.loginButtonText, pressed && styles.pressedText]}>로그인</Text>
-              )}
+            <Pressable accessibilityRole="button" hitSlop={8}>
+              <Text style={styles.loginButtonText}>로그인</Text>
             </Pressable>
           </View>
         </View>
@@ -258,8 +253,5 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.82,
-  },
-  pressedText: {
-    opacity: 0.6,
   },
 });
