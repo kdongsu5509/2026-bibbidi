@@ -9,8 +9,11 @@ web-build/
 .cache/
 
 # Local environment
-.env
-.env.*.local
+.env*
+!.env.example
+
+# Local AI tooling
+.omc/
 
 # IDE and OS files
 .DS_Store
@@ -20,6 +23,6 @@ web-build/
 # Logs
 *.log
 
-# Generated native projects (Expo prebuild)
-APP/android/
+# iOS is generated with Expo Prebuild. Android is versioned so every team
+# member builds with the same Gradle and signing configuration.
 APP/ios/

@@ -9,10 +9,19 @@ dist/
 web-build/
 expo-env.d.ts
 
+# local AI tools
+.claude/
+AGENTS.md
+CLAUDE.md
+
+# local editor settings
+.vscode/
+
 # Native
 .kotlin/
 *.orig.*
 *.jks
+*.keystore
 *.p8
 *.p12
 *.key
@@ -29,15 +38,25 @@ yarn-error.*
 # macOS
 .DS_Store
 *.pem
+credentials.json
+/credentials/
+keystore.properties
 
 # local env files
-.env*.local
+.env*
+!.env.example
 
 # typescript
 *.tsbuildinfo
 
-example
+# test output
+coverage/
 
-# generated native folders
+# Android release artifacts copied outside build directories
+*.apk
+*.aab
+mapping.txt
+native-debug-symbols.zip
+
+# iOS is generated. Android is versioned so the team shares the same Gradle setup.
 /ios
-/android

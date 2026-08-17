@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import {
   FlatList,
   Image,
+  Linking,
   Pressable,
   StyleSheet,
   Text,
@@ -14,6 +15,9 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ONBOARDING_SLIDES, type OnboardingSlide } from './onboarding-slides';
+
+const PRIVACY_POLICY_URL =
+  'https://docs.google.com/document/d/e/2PACX-1vRYdCfqXPIz6M0q211-5Xr-lxzc_n-eJTnLf_Az6YPCx7YLHpoBBoCSBgedAOlbzluJsyAfaQOr3dRl/pub';
 
 const COLORS = {
   background: '#F7F4F1',
@@ -43,6 +47,10 @@ export function OnboardingScreen() {
   const handleStart = useCallback(() => {
     router.push('/schedule');
   }, [router]);
+
+  const handlePrivacyPolicy = useCallback(() => {
+    void Linking.openURL(PRIVACY_POLICY_URL);
+  }, []);
 
   const renderSlide = useCallback(
     ({ item }: { item: OnboardingSlide }) => (
@@ -113,6 +121,15 @@ export function OnboardingScreen() {
               <Text style={styles.loginButtonText}>로그인</Text>
             </Pressable>
           </View>
+
+          <Pressable
+            accessibilityLabel="비비디 개인정보처리방침 열기"
+            accessibilityRole="link"
+            hitSlop={8}
+            onPress={handlePrivacyPolicy}
+          >
+            <Text style={styles.privacyPolicyText}>개인정보처리방침</Text>
+          </Pressable>
         </View>
       </View>
     </SafeAreaView>
@@ -250,6 +267,11 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontSize: 11,
     fontWeight: '700',
+  },
+  privacyPolicyText: {
+    color: COLORS.mutedText,
+    fontSize: 10,
+    textDecorationLine: 'underline',
   },
   pressed: {
     opacity: 0.82,

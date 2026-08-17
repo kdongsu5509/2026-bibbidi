@@ -12,7 +12,6 @@
     "app:android": "pnpm --filter @bibbidi/app android",
     "app:web": "pnpm --filter @bibbidi/app web",
     "app:typecheck": "pnpm --filter @bibbidi/app typecheck",
-    "app:build:android": "pnpm --filter @bibbidi/app build:android",
     "web": "pnpm --filter bibbidi-fe dev",
     "web:build": "pnpm --filter bibbidi-fe build"
   }
