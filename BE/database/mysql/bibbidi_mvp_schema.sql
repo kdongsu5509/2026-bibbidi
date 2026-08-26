@@ -1,3 +1,12 @@
+-- WARNING: This script drops and recreates the bibbidi database.
+-- All existing data will be permanently deleted when this script runs.
+
+DROP DATABASE IF EXISTS bibbidi;
+CREATE DATABASE bibbidi;
+USE bibbidi;
+
+SET time_zone = '+09:00';
+
 CREATE TABLE users (
     id BIGINT NOT NULL AUTO_INCREMENT,
     nickname VARCHAR(10) NOT NULL,
@@ -62,7 +71,7 @@ CREATE TABLE checklist_items (
     category_id BIGINT NOT NULL,
     source_catalog_item_id BIGINT,
     title VARCHAR(255) NOT NULL,
-    is_done BOOLEAN NOT NULL,
+    status VARCHAR(20) NOT NULL,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
     PRIMARY KEY (id),
@@ -77,8 +86,8 @@ CREATE TABLE appointments (
     checklist_item_id BIGINT NOT NULL,
     title VARCHAR(255) NOT NULL,
     appointment_date DATE NOT NULL,
-    start_time TIME,
-    end_time TIME,
+    start_time DATETIME,
+    end_time DATETIME,
     place VARCHAR(255),
     memo TEXT,
     is_done BOOLEAN NOT NULL,

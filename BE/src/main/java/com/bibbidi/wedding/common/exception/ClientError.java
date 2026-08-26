@@ -1,7 +1,6 @@
 package com.bibbidi.wedding.common.exception;
 
 public enum ClientError {
-
     INVALID_REQUEST(101, "요청 값이 올바르지 않습니다."),
     AUTHENTICATION_REQUIRED(201, "로그인이 필요합니다."),
     AUTHENTICATION_FAILED(202, "인증 정보가 올바르지 않습니다."),
