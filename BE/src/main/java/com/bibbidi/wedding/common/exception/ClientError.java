@@ -16,6 +16,7 @@ public enum ClientError {
 
     // 400: 비즈니스 오류
     DUPLICATE_NICKNAME(HttpStatus.CONFLICT, 401, "이미 사용 중인 닉네임입니다."),
+    DUPLICATE_CHECKLIST(HttpStatus.CONFLICT, 402, "이미 체크리스트가 존재합니다."),
 
     // 900: 서버 오류
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, 901, "요청을 처리하는 중 오류가 발생했습니다.");
